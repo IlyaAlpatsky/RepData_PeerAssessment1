@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 Setup, echo on, add libraries
 
 
@@ -60,7 +65,7 @@ summary(activity_data_day_summary)
 hist(activity_data_day_summary$steps_per_day, xlab = "Number of steps per day",main = "Histogram frequency of steps value by ingetrval", breaks = 9)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 3. Calculate and report the mean and median of the total number of steps taken per day, NA is removed to calculate values
 
@@ -96,7 +101,7 @@ head(daily_activity_intervals)
  plot(x=daily_activity_intervals$interval, y=daily_activity_intervals$steps_per_interval,type = "l", xlab="5-minute interval", ylab = "Number of steps", main = "Average (across all days) number of steps per 5-minutes interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -172,14 +177,14 @@ For reference histogram before adjustment was dupkicated
 hist(activity_data_day_summary$steps_per_day, xlab = "Number of steps per day",main = "Histogram frequency of steps value with NA by ingetrval", breaks = 9)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
 
 ```r
 activity_data_adj_day_summary <- ddply(activity_data_adj, "date",summarise, steps_adj_per_day = sum(steps_adj))
 hist(activity_data_adj_day_summary$steps_adj_per_day, xlab = "Number of steps (with NA adjastment) per day",main = "Histogram frequency of steps value NA adjusted by ingetrval", breaks = 9)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-2.png)<!-- -->
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-2.png)
 
 ```r
 mean_per_day_adj <- mean(activity_data_adj_day_summary$steps_adj_per_day)
@@ -228,4 +233,4 @@ summary(kindofday_avg_activity_adj)
 ggplot(data=kindofday_avg_activity_adj, aes(x = interval, y=steps_per_int_per_kod, color=kind_of_weekday)) + geom_line() + facet_wrap("kind_of_weekday") + xlab("Interval") + ylab("Number of steps") + ggtitle("Average number of steps for working days and weekends")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png)
