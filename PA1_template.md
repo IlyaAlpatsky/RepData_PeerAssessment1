@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+
 Setup, echo on, add libraries
 
 
@@ -234,3 +229,4 @@ ggplot(data=kindofday_avg_activity_adj, aes(x = interval, y=steps_per_int_per_ko
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png)
+
