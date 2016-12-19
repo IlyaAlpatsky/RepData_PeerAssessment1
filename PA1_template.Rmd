@@ -144,3 +144,4 @@ kindofday_avg_activity_adj <- ddply(activity_data_adj, c("interval","kind_of_wee
 summary(kindofday_avg_activity_adj)
 ggplot(data=kindofday_avg_activity_adj, aes(x = interval, y=steps_per_int_per_kod, color=kind_of_weekday)) + geom_line() + facet_wrap("kind_of_weekday") + xlab("Interval") + ylab("Number of steps") + ggtitle("Average number of steps for working days and weekends")
 ```
+
